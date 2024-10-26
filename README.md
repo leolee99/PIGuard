@@ -33,7 +33,7 @@ https://github.com/user-attachments/assets/450b6176-cd6c-4e04-9a9f-16a7c53557ec
 To address the over-defense issue commonly seen in existing guard models, we introduce the [NotInject](https://huggingface.co/datasets/leolee99/NotInject) dataset, designed to evaluate the extent of over-defense in these models. We identify certain trigger words that may cause defense shortcuts in guard models and use them to construct benign sentences. The dataset is divided into three subsets, each containing sentences with one, two, or three trigger words. For each subset, we create 113 benign sentences across four topics: Common Queries, Technique Queries, Virtual Creation, and Multilingual Queries.
 
 <p align="center" width="100%">
-<a target="_blank"><img src="assets/NotInject_distribution.png" alt="Perfomance Comparison" style="width: 90%; min-width: 200px; display: block; margin: auto;"></a>
+<a target="_blank"><img src="assets/NotInject_distribution.png" alt="Perfomance Comparison" style="width: 70%; min-width: 200px; display: block; margin: auto;"></a>
 </p>
 
 
