@@ -33,7 +33,7 @@ https://github.com/user-attachments/assets/450b6176-cd6c-4e04-9a9f-16a7c53557ec
 To address the over-defense issue commonly seen in existing guard models, we introduce the [NotInject](https://huggingface.co/datasets/leolee99/NotInject) dataset, designed to evaluate the extent of over-defense in these models. We identify certain trigger words that may cause defense shortcuts in guard models and use them to construct benign sentences. The dataset is divided into three subsets, each containing sentences with one, two, or three trigger words. For each subset, we create 113 benign sentences across four topics: Common Queries, Technique Queries, Virtual Creation, and Multilingual Queries.
 
 <p align="center" width="100%">
-<a target="_blank"><img src="assets/NotInject_distribution.png" alt="Perfomance Comparison" style="width: 70%; min-width: 200px; display: block; margin: auto;"></a>
+<a target="_blank"><img src="assets/NotInject_distribution.png" alt="Perfomance Comparison" style="width: 60%; min-width: 200px; display: block; margin: auto;"></a>
 </p>
 
 
@@ -58,7 +58,7 @@ You can directly download our trained checkpoints [here](https://drive.google.co
 
 - **Train set**: We have provided our training dataset in the path of ```InjecGuard\datasets```, collected from 20 open-source datasets and several of our LLM augmented data.
 
-- **Valid set**: We select several samples (144) from NotInject, BIPIA, Wildguard-Injection, and PINT to conduct validation, which have been provided in the path of ```InjecGuard\datasets```.
+- **Valid set**: We select several samples (144) from NotInject, BIPIA, Wildguard-Benign, and PINT to conduct validation, which have been provided in the path of ```InjecGuard\datasets```.
 
 - **Test set**: We select [NotInject](https://huggingface.co/datasets/leolee99/NotInject), [BIPIA](https://github.com/microsoft/BIPIA), [Wildguard-Benign](https://github.com/allenai/wildguard), and [PINT](https://github.com/lakeraai/pint-benchmark) to evaluate the benign, malicious, and over-defense of the model. The first three are all provided in the path of ```InjecGuard\datasets```. The benchmark of PINT is not public, but you can request access to it by filling out [here](https://share-eu1.hsforms.com/1TwiBEvLXRrCjJSdnbnHpLwfdfs3).
 
