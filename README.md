@@ -29,7 +29,7 @@ Prompt injection attacks pose a critical threat to large language models (LLMs),
 
 ## Demos of InjecGuard
 
-https://github.com/SaFoLab-WISC/InjecGuard/blob/main/assets/Demo.mp4
+https://github.com/user-attachments/assets/450b6176-cd6c-4e04-9a9f-16a7c53557ec
 
 <p align="center" width="100%">
 <a target="_blank"><img src="assets/Visualization.png" alt="Perfomance Comparison" style="width: 80%; min-width: 200px; display: block; margin: auto;"></a>
