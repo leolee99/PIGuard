@@ -29,7 +29,7 @@ Prompt injection attacks pose a critical threat to large language models (LLMs),
 
 ## Demos of InjecGuard
 
-https://github.com/SaFoLab-WISC/InjecGuard/assets/Demo.mp4
+https://github.com/SaFoLab-WISC/InjecGuard/blob/main/assets/Demo.mp4
 
 <p align="center" width="100%">
 <a target="_blank"><img src="assets/Visualization.png" alt="Perfomance Comparison" style="width: 80%; min-width: 200px; display: block; margin: auto;"></a>
@@ -70,7 +70,7 @@ You can directly download our trained checkpoints [here](https://drive.google.co
 
 ## 🔥 Train your InjecGuard
 
-There are some of argument you can set:
+There are some of arguments you can set:
 - ```--train_set```: the path to the train set file.
 - ```--valid_set```: the path to the valid set file.
 - ```--dataset_root```: the folder to place test sets.
