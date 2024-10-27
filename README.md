@@ -101,7 +101,7 @@ You can evalaute the model on both 4 datasets ***(NotInject, PINT, Wildguard-Ben
 python eval.py --resume ${CHECKPOINT}$
 ```
 
-## 📋 Results
+## 📈 Results
 
 <p align="center" width="100%">
 <a target="_blank"><img src="assets/Results.png" alt="Perfomance Comparison" style="width: 100%; min-width: 200px; display: block; margin: auto;"></a>
