@@ -26,7 +26,7 @@ This repository hosts the official code, data and model weights of **InjecGuard*
 ## 🎉 News 
 
 
-- [2024.10.28] 📷 Release the online [demo]((InjecGuard.github.io)) of InjecGuard.
+- [2024.10.28] 📷 Provide an online [demo]((InjecGuard.github.io)) of InjecGuard.
 - [2024.10.27] 🤗Release the [NotInject](https://huggingface.co/datasets/leolee99/NotInject) dataset.
 - [2024.10.27] 🛠️ Release the [code](https://github.com/SaFoLab-WISC/InjecGuard) of InjecGuard.
 
@@ -36,6 +36,8 @@ Prompt injection attacks pose a critical threat to large language models (LLMs),
 ## Demos of InjecGuard
 
 https://github.com/user-attachments/assets/450b6176-cd6c-4e04-9a9f-16a7c53557ec
+
+We have released an online demo, you can access it [here](InjecGuard.github.io).
 
 
 ## NotInject Dataset
