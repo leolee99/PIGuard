@@ -1,6 +1,6 @@
 
 # NotInject: Evaluating and Mitigating Over-defense in Prompt Guard Models for Robustness against Prompt Injection Attacks
-[Hao Li*](https://leolee99.github.io/), [Xiaogeng Liu*](https://sheltonliu-n.github.io/)*, and [Chaowei Xiao<sup>†</sup>](https://xiaocw11.github.io/).
+[Hao Li*](https://leolee99.github.io/), [Xiaogeng Liu*](https://sheltonliu-n.github.io/), and [Chaowei Xiao<sup>†</sup>](https://xiaocw11.github.io/).
 
 (*Equal Contribution, <sup>†</sup>Correspondence)
 
