@@ -63,7 +63,7 @@ def train():
     model = InjecGuard('microsoft/deberta-v3-base', num_labels=2, device=device) 
 
     if args.resume:
-        model.load_state_dict(torch.load(args.resume), strict=False)
+        model.load_state_dict(torch.load(args.resume, map_location=device), strict=False)
 
     optimizer = torch.optim.Adam(model.parameters(), lr=args.lr, betas=(args.beta1, args.beta2), eps=args.eps)
 
@@ -146,7 +146,7 @@ def train():
 
     # evaluate on overall test set
     logger.info("Evaluate Best Model on Test Sets.")
-    model.load_state_dict(torch.load(best_model_path))
+    model.load_state_dict(torch.load(best_model_path, map_location=device))
     logger.info(f"Loaded model from {best_model_path}.")
     evaluate(model, args.dataset_root)
 

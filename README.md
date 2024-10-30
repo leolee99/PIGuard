@@ -1,5 +1,5 @@
 
-# NotInject: Evaluating and Mitigating Over-defense in Prompt Guard Models for Robustness against Prompt Injection Attacks
+# InjecGuard: Benchmarking and Mitigating Over-defense in Prompt Injection Guardrail Models
 [Hao Li*](https://leolee99.github.io/), [Xiaogeng Liu*](https://sheltonliu-n.github.io/), and [Chaowei Xiao<sup>†</sup>](https://xiaocw11.github.io/).
 
 (*Equal Contribution, <sup>†</sup>Correspondence)
@@ -20,7 +20,7 @@
 This repository hosts the official code, data and model weights of **InjecGuard**, the first prompt guard model against prompt injection to be built with open-source training data and detailed documentation, consistently achieving remarkable performance in benign, malicious, and over-defense accuracy.
 
 <p align="center" width="100%">
-<a target="_blank"><img src="assets/performance.png" alt="Perfomance Comparison" style="width: 60%; min-width: 200px; display: block; margin: auto;"></a>
+<a target="_blank"><img src="assets/figure_performance.png" alt="Perfomance Comparison" style="width: 100%; min-width: 200px; display: block; margin: auto;"></a>
 </p>
 
 ## 🎉 News 
@@ -35,7 +35,7 @@ Prompt injection attacks pose a critical threat to large language models (LLMs),
 
 ## Demos of InjecGuard
 
-https://github.com/user-attachments/assets/450b6176-cd6c-4e04-9a9f-16a7c53557ec
+https://github.com/user-attachments/assets/a6b58136-a7c4-4d7c-8b85-414884d34a39
 
 We have released an online demo, you can access it [here](InjecGuard.github.io).
 
@@ -118,7 +118,7 @@ python eval.py --resume ${CHECKPOINT}$
 If you find this work useful in your research or applications, we appreciate that if you can kindly cite:
 ```
 @articles{InjecGuard,
-  title={NotInject: Evaluating and Mitigating Over-defense in Prompt Guard Models for Robustness against Prompt Injection Attacks},
+  title={InjecGuard: Benchmarking and Mitigating Over-defense in Prompt Injection Guardrail Models},
   author={Hao Li and Xiaogeng Liu and Chaowei Xiao},
   journal = {CoRR},
   year={2024}

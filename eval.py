@@ -191,7 +191,7 @@ if __name__ == "__main__":
     print(f"Using device: {device}")
 
     model = InjecGuard('microsoft/deberta-v3-base', num_labels=2, device=device)
-    model.load_state_dict(torch.load(args.resume), strict=False)
+    model.load_state_dict(torch.load(args.resume, map_location=device), strict=False)
 
     model.to(device)
 
