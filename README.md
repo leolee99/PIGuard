@@ -7,11 +7,11 @@
 **[SaFoLab](https://safolab-wisc.github.io/), University of Wisconsin, Madison**
 
 -----
-<a href='InjecGuard.github.io'><img src='https://img.shields.io/badge/Website-Page-%23f08080'></a> 
+<a href='https://injecguard.github.io/'><img src='https://img.shields.io/badge/Website-Page-%23f08080'></a> 
 <a href='https://github.com/SaFoLab-WISC/InjecGuard'><img src='https://img.shields.io/badge/GitHub-code-green?logo=github'></a> 
 <a href=''><img src='https://img.shields.io/badge/Paper-PDF-red?logo=open-access'></a> 
 <a href="https://huggingface.co/datasets/leolee99/NotInject"><img src="https://img.shields.io/badge/Dataset-HF-orange?logo=huggingface" alt="huggingface"/></a>
-<a href="InjecGuard.github.io"><img src="https://img.shields.io/badge/Demo-Page-yellow" alt="Github license"/></a>
+<a href="https://injecguard.github.io/"><img src="https://img.shields.io/badge/Demo-Page-yellow" alt="Github license"/></a>
 <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue" alt="Github license"/></a>
 
 
