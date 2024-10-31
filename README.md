@@ -24,7 +24,7 @@ This repository hosts the official code, data and model weights of **InjecGuard*
 ## 🎉 News 
 
 - [2024.10.31] 🎉🎉 Our paper has been released on [arXiv](https://arxiv.org/pdf/2410.22770).
-- [2024.10.28] 📷 Provide an online [demo]((InjecGuard.github.io)) of InjecGuard.
+- [2024.10.28] 📷 Provide an online [demo]((injecguard.github.io)) of InjecGuard.
 - [2024.10.27] 🤗Release the [NotInject](https://huggingface.co/datasets/leolee99/NotInject) dataset.
 - [2024.10.27] 🛠️ Release the [code](https://github.com/SaFoLab-WISC/InjecGuard) of InjecGuard.
 
