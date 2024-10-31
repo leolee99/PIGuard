@@ -1,9 +1,9 @@
-import os
 import torch
+import yaml
+import json
 import random
 import numpy as np
 import logging
-import torch.backends.cudnn as cudnn
 
 def compute_accuracy(predictions, labels):
     correct = predictions == labels
@@ -50,3 +50,17 @@ def get_logger(filename=None):
         handler.setFormatter(logging.Formatter('%(asctime)s:%(levelname)s: %(message)s'))
         logging.getLogger().addHandler(handler)
     return logger
+
+
+def yaml_to_json(yaml_file, json_file):
+    with open(yaml_file, 'r', encoding='utf-8') as file:
+        yaml_content = yaml.safe_load(file)  # load YAML
+    
+    # write to json file
+    with open(json_file, 'w', encoding='utf-8') as json_output:
+        json.dump(yaml_content, json_output, indent=4)
+
+
+if __name__ == "__main__":
+    # format to PINT.json, change the path to your original pint file, and output path
+    yaml_to_json('datasets/pint-v1.0.1-679dd3c2.yaml', 'datasets/PINT.json')

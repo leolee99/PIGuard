@@ -69,7 +69,13 @@ You can directly download our trained checkpoints [here](https://drive.google.co
 
 - **Valid set**: We select several samples (144) from NotInject, BIPIA, Wildguard-Benign, and PINT to conduct validation, which have been provided in the path of ```InjecGuard\datasets```.
 
-- **Test set**: We select [NotInject](https://huggingface.co/datasets/leolee99/NotInject), [BIPIA](https://github.com/microsoft/BIPIA), [Wildguard-Benign](https://github.com/allenai/wildguard), and [PINT](https://github.com/lakeraai/pint-benchmark) to evaluate the benign, malicious, and over-defense of the model. The first three are all provided in the path of ```InjecGuard\datasets```. The benchmark of PINT is not public, but you can request access to it by filling out [here](https://share-eu1.hsforms.com/1TwiBEvLXRrCjJSdnbnHpLwfdfs3).
+- **Test set**: We select [NotInject](https://huggingface.co/datasets/leolee99/NotInject), [BIPIA](https://github.com/microsoft/BIPIA), [Wildguard-Benign](https://github.com/allenai/wildguard), and [PINT](https://github.com/lakeraai/pint-benchmark) to evaluate the benign, malicious, and over-defense of the model. The first three are all provided in the path of ```InjecGuard\datasets```. The benchmark of PINT is not public, but you can request access to it by filling out [here](https://share-eu1.hsforms.com/1TwiBEvLXRrCjJSdnbnHpLwfdfs3). 
+
+**Note:** Once you’ve downloaded the PINT benchmark, convert it from original YAML to JSON format by executing the following command:
+```
+python util.py
+```
+
 
 ## 🔥 Train your InjecGuard
 
@@ -96,7 +102,7 @@ python train.py
 
 ## 📋 Evaluation
 
-You can evalaute the model on both 4 datasets ***(NotInject, PINT, Wildguard-Benign, BIPIA)*** by excuting the command:
+You can evaluate the model on both 4 datasets ***(NotInject, PINT, Wildguard-Benign, BIPIA)*** by excuting the command:
 ```
 python eval.py --resume ${CHECKPOINT}$
 ```
