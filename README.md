@@ -7,7 +7,7 @@
 -----
 <a href='https://injecguard.github.io/'><img src='https://img.shields.io/badge/Website-Page-%23f08080'></a> 
 <a href='https://github.com/SaFoLab-WISC/InjecGuard'><img src='https://img.shields.io/badge/GitHub-code-green?logo=github'></a> 
-<a href=''><img src='https://img.shields.io/badge/Paper-PDF-red?logo=open-access'></a> 
+<a href='https://arxiv.org/pdf/2410.22770'><img src='https://img.shields.io/badge/Paper-PDF-red?logo=open-access'></a> 
 <a href="https://huggingface.co/datasets/leolee99/NotInject"><img src="https://img.shields.io/badge/Dataset-HF-orange?logo=huggingface" alt="huggingface"/></a>
 <a href="https://injecguard.github.io/"><img src="https://img.shields.io/badge/Demo-Page-yellow" alt="Github license"/></a>
 <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue" alt="Github license"/></a>
@@ -23,7 +23,7 @@ This repository hosts the official code, data and model weights of **InjecGuard*
 
 ## 🎉 News 
 
-
+- [2024.10.31] 🎉🎉 Our paper has been released on [arXiv](https://arxiv.org/pdf/2410.22770).
 - [2024.10.28] 📷 Provide an online [demo]((InjecGuard.github.io)) of InjecGuard.
 - [2024.10.27] 🤗Release the [NotInject](https://huggingface.co/datasets/leolee99/NotInject) dataset.
 - [2024.10.27] 🛠️ Release the [code](https://github.com/SaFoLab-WISC/InjecGuard) of InjecGuard.
@@ -118,7 +118,7 @@ If you find this work useful in your research or applications, we appreciate tha
 @articles{InjecGuard,
   title={InjecGuard: Benchmarking and Mitigating Over-defense in Prompt Injection Guardrail Models},
   author={Hao Li and Xiaogeng Liu and Chaowei Xiao},
-  journal = {CoRR},
+  journal = {arXiv preprint arXiv:2410.22770},
   year={2024}
 }
 ```
