@@ -1,8 +1,6 @@
 
 # InjecGuard: Benchmarking and Mitigating Over-defense in Prompt Injection Guardrail Models
-[Hao Li*](https://leolee99.github.io/), [Xiaogeng Liu*](https://sheltonliu-n.github.io/), and [Chaowei Xiao](https://xiaocw11.github.io/). (*Equal Contribution)
-
-**[SaFoLab](https://safolab-wisc.github.io/), University of Wisconsin, Madison**
+[Hao Li*](https://leolee99.github.io/), [Xiaogeng Liu*](https://sheltonliu-n.github.io/). (*Equal Contribution)
 
 -----
 <a href='https://injecguard.github.io/'><img src='https://img.shields.io/badge/Website-Page-%23f08080'></a> 
