@@ -121,7 +121,7 @@ If you find this work useful in your research or applications, we appreciate tha
 ```
 @articles{InjecGuard,
   title={InjecGuard: Benchmarking and Mitigating Over-defense in Prompt Injection Guardrail Models},
-  author={Hao Li and Xiaogeng Liu and Chaowei Xiao},
+  author={Hao Li and Xiaogeng Liu},
   journal = {arXiv preprint arXiv:2410.22770},
   year={2024}
 }
