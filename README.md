@@ -71,7 +71,7 @@ You can directly download our trained checkpoints [here](https://drive.google.co
 
 **Note:** Once you’ve downloaded the PINT benchmark, convert it from original YAML to JSON format by executing the following command:
 ```
-python util.py
+python -u util.py
 ```
 
 
