@@ -1,4 +1,4 @@
-from transformers import AutoTokenizer
+from transformers import AutoTokenizer, AutoModelForSequenceClassification, pipeline
 import os
 import torch
 import json
@@ -7,7 +7,7 @@ from util import set_seed, get_logger
 from params import parse_args
 from dataset_down import pint_download
 
-def acc_compute(model, target_set, target_class="benign", name="chat"):
+def acc_compute(model, tokenizer, target_set, target_class="benign", name="chat"):
     bad_sample = []
     logits_list = []
     save_dict = []
@@ -17,14 +17,32 @@ def acc_compute(model, target_set, target_class="benign", name="chat"):
     else:
         target_label = 1
     
+    tokenizer = AutoTokenizer.from_pretrained(model_name)
+    classifier = pipeline(
+    "text-classification",
+    model=model,
+    tokenizer=tokenizer,
+    truncation=True,
+    max_length=512,
+    device=torch.device("cuda" if torch.cuda.is_available() else "cpu"),
+    )
+    label2id = model.config.label2id
+
     with torch.no_grad():
         for idx, sample in enumerate(target_set):
-            class_logits = model.classify(sample)
-            pred = class_logits.argmax().item()
-            if pred != target_label:
+            class_logits = classifier(sample)
+            # pred = class_logits.argmax().item()
+
+            pred_class = label2id[class_logits[0]["label"]]
+            pred_score = class_logits[0]["score"]
+
+            if pred_class >= 1:
+                pred_class = 1
+
+            if pred_class != target_label:
                 bad_sample.append(sample)
-                logits_list.append(class_logits.cpu())
-                save_dict.append({"prompt": sample, "logits": class_logits.cpu().squeeze().tolist()})
+                logits_list.append(pred_score)
+                save_dict.append({"prompt": sample, "logits": pred_score})
                 # print(f"Prompt: {sample}\nLogits: {class_logits.cpu()}")
 
             del class_logits
@@ -35,7 +53,7 @@ def acc_compute(model, target_set, target_class="benign", name="chat"):
     return acc
 
 
-def pint_evaluate(model, dataset_root="datasets"):
+def pint_evaluate(model, tokenizer, dataset_root="datasets"):
     if not os.path.exists(os.path.join(dataset_root, "PINT.json")):
         pint_download(os.path.join(dataset_root, "PINT.json"))
     with open(os.path.join(dataset_root, "PINT.json"), "r") as f:
@@ -75,12 +93,12 @@ def pint_evaluate(model, dataset_root="datasets"):
 
             injection_set.append(sample["text"])
 
-    chat_acc = acc_compute(model, chat_set, target_class="benign", name="chat")
-    documents_acc = acc_compute(model, documents_set, target_class="benign", name="documents")
-    hard_negatives_acc = acc_compute(model, hard_negatives_set, target_class="benign", name="hard_negatives")
-    public_prompt_injection_acc = acc_compute(model, public_prompt_injection_set, target_class="injection", name="public_prompt_injection")
-    internal_prompt_injection_acc = acc_compute(model, internal_prompt_injection_set, target_class="injection", name="internal_prompt_injection")
-    jailbreak_acc = acc_compute(model, jailbreak_set, target_class="injection", name="jailbreak")
+    chat_acc = acc_compute(model, tokenizer, chat_set, target_class="benign", name="chat")
+    documents_acc = acc_compute(model, tokenizer, documents_set, target_class="benign", name="documents")
+    hard_negatives_acc = acc_compute(model, tokenizer, hard_negatives_set, target_class="benign", name="hard_negatives")
+    public_prompt_injection_acc = acc_compute(model, tokenizer, public_prompt_injection_set, target_class="injection", name="public_prompt_injection")
+    internal_prompt_injection_acc = acc_compute(model, tokenizer, internal_prompt_injection_set, target_class="injection", name="internal_prompt_injection")
+    jailbreak_acc = acc_compute(model, tokenizer, jailbreak_set, target_class="injection", name="jailbreak")
 
     overall_acc = (chat_acc + documents_acc + hard_negatives_acc + public_prompt_injection_acc + internal_prompt_injection_acc + jailbreak_acc) / 6
     benign_acc = (chat_acc + documents_acc + hard_negatives_acc) / 3
@@ -90,7 +108,7 @@ def pint_evaluate(model, dataset_root="datasets"):
     print(f"overall accuracy: {overall_acc}")
     return overall_acc, benign_acc, injection_acc
 
-def wildguard_eval(model, dataset_root="datasets"):
+def wildguard_eval(model, tokenizer, dataset_root="datasets"):
     benign_set = []
     with open(os.path.join(dataset_root, "wildguard.json"), "r") as f:
         valid_dataset = json.load(f)
@@ -98,10 +116,10 @@ def wildguard_eval(model, dataset_root="datasets"):
     for sample in valid_dataset:
         benign_set.append(sample["prompt"])
 
-    wildguard_acc = acc_compute(model, benign_set, target_class="benign", name="wildguard")
+    wildguard_acc = acc_compute(model, tokenizer, benign_set, target_class="benign", name="wildguard")
     return wildguard_acc
 
-def BIPIA_eval(model, dataset_root="datasets"):
+def BIPIA_eval(model, tokenizer, dataset_root="datasets"):
     injection_set = []
     with open(os.path.join(dataset_root, "BIPIA_text.json"), "r") as f:
         valid_dataset = json.load(f)
@@ -110,7 +128,7 @@ def BIPIA_eval(model, dataset_root="datasets"):
         for context in valid_dataset[key]:
             injection_set.append(context)
 
-    BIPIA_text_acc = acc_compute(model, injection_set, target_class="injection", name="BIPIA_text")
+    BIPIA_text_acc = acc_compute(model, tokenizer, injection_set, target_class="injection", name="BIPIA_text")
 
     injection_set = []
     with open(os.path.join(dataset_root, "BIPIA_code.json"), "r") as f:
@@ -120,14 +138,14 @@ def BIPIA_eval(model, dataset_root="datasets"):
         for context in valid_dataset[key]:
             injection_set.append(context)
 
-    BIPIA_code_acc = acc_compute(model, injection_set, target_class="injection", name="BIPIA_code")
+    BIPIA_code_acc = acc_compute(model, tokenizer, injection_set, target_class="injection", name="BIPIA_code")
 
     BIPIA_overall_acc = (BIPIA_text_acc + BIPIA_code_acc) / 2
     print(f"BIPIA overall accuracy: {BIPIA_overall_acc}")
 
     return BIPIA_overall_acc, BIPIA_text_acc, BIPIA_code_acc
 
-def NotInject_eval(model, dataset_root="datasets/NotInject_one"):
+def NotInject_eval(model, tokenizer, dataset_root="datasets/NotInject_one"):
     benign_set = []
     with open(os.path.join(dataset_root, "NotInject_one.json"), "r") as f:
         valid_dataset = json.load(f)
@@ -135,7 +153,7 @@ def NotInject_eval(model, dataset_root="datasets/NotInject_one"):
     for sample in valid_dataset:
             benign_set.append(sample["prompt"])
 
-    one_acc = acc_compute(model, benign_set, target_class="benign", name="NotInject_one")
+    one_acc = acc_compute(model, tokenizer, benign_set, target_class="benign", name="NotInject_one")
 
     benign_set = []
     with open(os.path.join(dataset_root, "NotInject_two.json"), "r") as f:
@@ -144,7 +162,7 @@ def NotInject_eval(model, dataset_root="datasets/NotInject_one"):
     for sample in valid_dataset:
             benign_set.append(sample["prompt"])
 
-    two_acc = acc_compute(model, benign_set, target_class="benign", name="NotInject_two")
+    two_acc = acc_compute(model, tokenizer, benign_set, target_class="benign", name="NotInject_two")
 
     benign_set = []
     with open(os.path.join(dataset_root, "NotInject_three.json"), "r") as f:
@@ -153,18 +171,18 @@ def NotInject_eval(model, dataset_root="datasets/NotInject_one"):
     for sample in valid_dataset:
             benign_set.append(sample["prompt"])
 
-    three_acc = acc_compute(model, benign_set, target_class="benign", name="NotInject_three")
+    three_acc = acc_compute(model, tokenizer, benign_set, target_class="benign", name="NotInject_three")
 
     overall_acc = (one_acc + two_acc + three_acc) / 3
     print(f"NotInject overall accuracy: {overall_acc}")
 
     return overall_acc, one_acc, two_acc, three_acc
 
-def evaluate(model, dataset_root):
-    pint_acc, pint_benign_acc, pint_injection_acc = pint_evaluate(model, dataset_root)
-    wild_acc = wildguard_eval(model, dataset_root)
-    BIPIA_acc, BIPIA_text_acc, BIPIA_code_acc = BIPIA_eval(model, dataset_root)
-    Notinject_acc, Notinject_one_acc, Notinject_two_acc, Notinject_three_acc = NotInject_eval(model, dataset_root)
+def evaluate(model, tokenizer, dataset_root):
+    pint_acc, pint_benign_acc, pint_injection_acc = pint_evaluate(model, tokenizer, dataset_root)
+    wild_acc = wildguard_eval(model, tokenizer, dataset_root)
+    BIPIA_acc, BIPIA_text_acc, BIPIA_code_acc = BIPIA_eval(model, tokenizer, dataset_root)
+    Notinject_acc, Notinject_one_acc, Notinject_two_acc, Notinject_three_acc = NotInject_eval(model, tokenizer, dataset_root)
 
     benign_acc = (pint_benign_acc + wild_acc) / 2
     injection_acc = (pint_injection_acc + BIPIA_acc) / 2
@@ -193,10 +211,28 @@ if __name__ == "__main__":
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     print(f"Using device: {device}")
 
-    model = InjecGuard('microsoft/deberta-v3-base', num_labels=2, device=device)
-    model.load_state_dict(torch.load(args.resume, map_location=device), strict=False)
+    if args.resume == "promptguard":
+        model_name = "meta-llama/Prompt-Guard-86M"
+        tokenizer = AutoTokenizer.from_pretrained(model_name)
+        model = AutoModelForSequenceClassification.from_pretrained(model_name, num_labels=3).to(device)
 
-    model.to(device)
+        model.to(device)
 
-    dataset_root = args.dataset_root
-    evaluate(model, dataset_root)
+        dataset_root = args.dataset_root
+        evaluate(model, tokenizer, dataset_root)
+
+    elif args.resume == "protectai":
+        model_name = "protectai/deberta-v3-base-prompt-injection-v2"
+        tokenizer = AutoTokenizer.from_pretrained(model_name)
+        model = AutoModelForSequenceClassification.from_pretrained(model_name, num_labels=2).to(device)
+
+        model.to(device)
+
+        dataset_root = args.dataset_root
+        evaluate(model, tokenizer, dataset_root)
+
+    else:
+        print("Please set the resume model to 'promptguard' or 'protectai'.")
+
+
+

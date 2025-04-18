@@ -15,7 +15,7 @@ This repository hosts the code, data and model weights of **InjecGuard**, the fi
 https://github.com/user-attachments/assets/a6b58136-a7c4-4d7c-8b85-414884d34a39
 
 ## NotInject Dataset
-To address the over-defense issue commonly seen in existing guard models, we introduce the [NotInject](https://huggingface.co/datasets/leolee99/NotInject) dataset, designed to evaluate the extent of over-defense in these models. We identify certain trigger words that may cause defense shortcuts in guard models and use them to construct benign sentences. The dataset is divided into three subsets, each containing sentences with one, two, or three trigger words. For each subset, we create 113 benign sentences across four topics: Common Queries, Technique Queries, Virtual Creation, and Multilingual Queries.
+To address the over-defense issue commonly seen in existing guard models, we introduce the NotInject dataset, designed to evaluate the extent of over-defense in these models. We identify certain trigger words that may cause defense shortcuts in guard models and use them to construct benign sentences. The dataset is divided into three subsets, each containing sentences with one, two, or three trigger words. For each subset, we create 113 benign sentences across four topics: Common Queries, Technique Queries, Virtual Creation, and Multilingual Queries.
 
 <p align="center" width="100%">
 <a target="_blank"><img src="assets/NotInject_distribution.png" alt="Perfomance Comparison" style="width: 60%; min-width: 200px; display: block; margin: auto;"></a>
@@ -37,7 +37,7 @@ pip install -r requirements.txt
 
 ## 💾 Checkpoints
 
-You can directly download our trained checkpoints [here](https://drive.google.com/file/d/1JpiVb_wtnbBLNEjIx1KS7PHuvmARQKTu/view?usp=sharing). 
+You can directly download our trained checkpoints [here](https://drive.google.com/file/d/1BxwRAtzR-0QB8XhdQSfuwQH289RnzKoQ/view?usp=drive_link). 
 
 ## ⚙️ Dataset Preparation
 
@@ -45,7 +45,7 @@ You can directly download our trained checkpoints [here](https://drive.google.co
 
 - **Valid set**: We select several samples (144) from NotInject, BIPIA, Wildguard-Benign, and PINT to conduct validation, which have been provided in the path of ```InjecGuard\datasets```.
 
-- **Test set**: We select NotInject, [BIPIA](https://github.com/microsoft/BIPIA), [Wildguard-Benign](https://github.com/allenai/wildguard), and [PINT](https://github.com/lakeraai/pint-benchmark) to evaluate the benign, malicious, and over-defense of the model. These datasets are all provided in the path of ```InjecGuard\datasets```.
+- **Test set**: We select **NotInject**, **BIPIA**, **Wildguard-Benign**, and **PINT** to evaluate the benign, malicious, and over-defense of the model. The first three datasets are provided in the path ```InjecGuard\datasets```. The PINT dataset will be automatically downloaded from Google Drive when running the evaluation, or you can manually download it [here](https://drive.google.com/file/d/1OVkhLVrEXYkFGEGiwfk1LTUzDWMkQ1jz/view?usp=drive_link) and place it in the ```InjecGuard\datasets``` directory.
 
 ## 🔥 Train your InjecGuard
 
@@ -76,6 +76,22 @@ You can evaluate the model on both 4 datasets ***(NotInject, PINT, Wildguard-Ben
 ```
 python eval.py --resume ${CHECKPOINT}$
 ```
+
+### Eval on Existing Guard Models
+
+We also provide the code for evaluating two advanced guard models, **PromptGuard** and **ProtectAIv2**.
+
+For evaluating **PromptGuard**, please excute the command:
+```
+python eval_existing_models.py --resume promptguard
+```
+
+For evaluating **ProtectAIv2**, please excute the command:
+```
+python eval_existing_models.py --resume protectai
+```
+
+We also provide the **evaluation log files** for these two models. You can find them in the ```logs\promptguard_eval.out``` and ```logs\protectai_eval.out```.
 
 ## 📈 Results
 
