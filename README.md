@@ -79,7 +79,7 @@ python eval.py --resume ${CHECKPOINT}$
 
 ### Eval on Existing Guard Models
 
-We also provide the code for evaluating two advanced guard models, **PromptGuard** and **ProtectAIv2**.
+We also provide the code for evaluating two advanced guard models, [**PromptGuard**](https://huggingface.co/meta-llama/Prompt-Guard-86M) and [**ProtectAIv2**](https://huggingface.co/protectai/deberta-v3-base-prompt-injection-v2). Notice: You should log in your huggingface account and first get the access permission for automatically download these two models in the evaluation process.
 
 For evaluating **PromptGuard**, please excute the command:
 ```
