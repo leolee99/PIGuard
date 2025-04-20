@@ -1,30 +1,30 @@
-04/18/2025 17:36:27 - INFO -   Effective parameters:
-04/18/2025 17:36:27 - INFO -     <<< batch_size: 32
-04/18/2025 17:36:27 - INFO -     <<< beta1: 0.9
-04/18/2025 17:36:27 - INFO -     <<< beta2: 0.999
-04/18/2025 17:36:27 - INFO -     <<< checkpoint_path: logs
-04/18/2025 17:36:27 - INFO -     <<< dataset_root: datasets
-04/18/2025 17:36:27 - INFO -     <<< display: 10
-04/18/2025 17:36:27 - INFO -     <<< epochs: 3
-04/18/2025 17:36:27 - INFO -     <<< eps: 1e-08
-04/18/2025 17:36:27 - INFO -     <<< eval_batch_size: 32
-04/18/2025 17:36:27 - INFO -     <<< logs: logs
-04/18/2025 17:36:27 - INFO -     <<< lr: 2e-05
-04/18/2025 17:36:27 - INFO -     <<< max_length: 512
-04/18/2025 17:36:27 - INFO -     <<< name: 0
-04/18/2025 17:36:27 - INFO -     <<< resume: promptguard
-04/18/2025 17:36:27 - INFO -     <<< save_step: 200
-04/18/2025 17:36:27 - INFO -     <<< save_thres: 0.8
-04/18/2025 17:36:27 - INFO -     <<< seed: 42
-04/18/2025 17:36:27 - INFO -     <<< train_set: datasets/train.json
-04/18/2025 17:36:27 - INFO -     <<< valid_set: datasets/valid.json
-04/18/2025 17:36:27 - INFO -     <<< warmup: 100
-/home/miniconda3/envs/injecguard/lib/python3.10/site-packages/transformers/tokenization_utils_base.py:1601: FutureWarning: `clean_up_tokenization_spaces` was not set. It will be set to `True` by default. This behavior will be depracted in transformers v4.45, and will be then set to `False` by default. For more details check this issue: https://github.com/huggingface/transformers/issues/31884
+04/20/2025 05:04:23 - INFO -   Effective parameters:
+04/20/2025 05:04:23 - INFO -     <<< batch_size: 32
+04/20/2025 05:04:23 - INFO -     <<< beta1: 0.9
+04/20/2025 05:04:23 - INFO -     <<< beta2: 0.999
+04/20/2025 05:04:23 - INFO -     <<< checkpoint_path: logs
+04/20/2025 05:04:23 - INFO -     <<< dataset_root: datasets
+04/20/2025 05:04:23 - INFO -     <<< display: 10
+04/20/2025 05:04:23 - INFO -     <<< epochs: 3
+04/20/2025 05:04:23 - INFO -     <<< eps: 1e-08
+04/20/2025 05:04:23 - INFO -     <<< eval_batch_size: 32
+04/20/2025 05:04:23 - INFO -     <<< logs: logs
+04/20/2025 05:04:23 - INFO -     <<< lr: 2e-05
+04/20/2025 05:04:23 - INFO -     <<< max_length: 512
+04/20/2025 05:04:23 - INFO -     <<< name: 0
+04/20/2025 05:04:23 - INFO -     <<< resume: promptguard
+04/20/2025 05:04:23 - INFO -     <<< save_step: 200
+04/20/2025 05:04:23 - INFO -     <<< save_thres: 0.8
+04/20/2025 05:04:23 - INFO -     <<< seed: 42
+04/20/2025 05:04:23 - INFO -     <<< train_set: datasets/train.json
+04/20/2025 05:04:23 - INFO -     <<< valid_set: datasets/valid.json
+04/20/2025 05:04:23 - INFO -     <<< warmup: 100
+/home/hao/miniconda3/envs/injecguard/lib/python3.10/site-packages/transformers/tokenization_utils_base.py:1601: FutureWarning: `clean_up_tokenization_spaces` was not set. It will be set to `True` by default. This behavior will be depracted in transformers v4.45, and will be then set to `False` by default. For more details check this issue: https://github.com/huggingface/transformers/issues/31884
   warnings.warn(
-/home/miniconda3/envs/injecguard/lib/python3.10/site-packages/transformers/convert_slow_tokenizer.py:551: UserWarning: The sentencepiece tokenizer that you are converting to a fast tokenizer uses the byte fallback option which is not implemented in the fast tokenizers. In practice this means that the fast version of the tokenizer can produce unknown tokens whereas the sentencepiece version would have converted these unknown tokens into a sequence of byte tokens matching the original piece of text.
+/home/hao/miniconda3/envs/injecguard/lib/python3.10/site-packages/transformers/convert_slow_tokenizer.py:551: UserWarning: The sentencepiece tokenizer that you are converting to a fast tokenizer uses the byte fallback option which is not implemented in the fast tokenizers. In practice this means that the fast version of the tokenizer can produce unknown tokens whereas the sentencepiece version would have converted these unknown tokens into a sequence of byte tokens matching the original piece of text.
   warnings.warn(
-Using device: cuda
 You seem to be using the pipelines sequentially on GPU. In order to maximize efficiency please use a dataset
+Using device: cuda
 chat set accuracy: 0.0073260073260073
 documents set accuracy: 0.7081031307550645
 hard_negatives set accuracy: 0.6926536731634183
