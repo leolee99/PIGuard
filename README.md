@@ -6,7 +6,7 @@
 <a href='https://injecguard.github.io/'><img src='https://img.shields.io/badge/Website-Page-%23f08080'></a> 
 <a href='https://github.com/SaFoLab-WISC/InjecGuard'><img src='https://img.shields.io/badge/GitHub-code-green?logo=github'></a> 
 <a href='https://arxiv.org/pdf/2410.22770'><img src='https://img.shields.io/badge/Paper-PDF-red?logo=open-access'></a> 
-<a href="https://huggingface.co/datasets/leolee99/NotInject"><img src="https://img.shields.io/badge/Dataset-HF-orange?logo=huggingface" alt="huggingface"/></a>
+<a href="https://huggingface.co/datasets/leolee99/InjecGuard"><img src="https://img.shields.io/badge/Model-HF-orange?logo=huggingface" alt="huggingface"/></a>
 <a href="https://injecguard.github.io/"><img src="https://img.shields.io/badge/Demo-Page-yellow" alt="Github license"/></a>
 <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue" alt="Github license"/></a>
 
@@ -21,10 +21,11 @@ This repository hosts the official code, data and model weights of **InjecGuard*
 
 ## 🎉 News 
 
+- **[2025.4.21]** 🤗 Our model has been released on [Huggingface](https://huggingface.co/leolee99/InjecGuard), you can quickly deploy InjecGuard now!
 - [2024.10.31] 🎉🎉 Our paper has been released on [arXiv](https://arxiv.org/pdf/2410.22770).
 - [2024.10.28] 📷 Provide an online [demo](https://injecguard.github.io/) of InjecGuard.
-- [2024.10.27] 🤗Release the [NotInject](https://huggingface.co/datasets/leolee99/NotInject) dataset.
-- [2024.10.27] 🛠️ Release the [code](https://github.com/SaFoLab-WISC/InjecGuard) of InjecGuard.
+- [2024.10.27] 🤗 Release the [NotInject](https://huggingface.co/datasets/leolee99/NotInject) dataset.
+- [2024.10.27] 🛠️ Release the [code](https://github.com/leolee99/InjecGuard) of InjecGuard.
 
 ## Abstract
 Prompt injection attacks pose a critical threat to large language models (LLMs), enabling goal hijacking and data leakage. Prompt guard models, though effective in defense, suffer from over-defense—falsely flagging benign inputs as malicious due to trigger word bias. To address this issue, we introduce ***NotInject***, an evaluation dataset that systematically measures over-defense across various prompt guard models. NotInject contains 339 benign samples enriched with trigger words common in prompt injection attacks, enabling fine-grained evaluation. Our results show that state-of-the-art models suffer from over-defense issues, with accuracy dropping close to random guessing levels (60\%). To mitigate this, we propose ***InjecGuard***, a novel prompt guard model that incorporates a new training strategy, *Mitigating Over-defense for Free* (MOF), which significantly reduces the bias on trigger words. InjecGuard demonstrates state-of-the-art performance on diverse benchmarks including NotInject, surpassing the existing best model by 30.8\%, offering a robust and open-source solution for detecting prompt injection attacks.
