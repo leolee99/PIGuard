@@ -22,7 +22,8 @@ This repository hosts the official code, data and model weights of **InjecGuard*
 
 ## 🎉 News 
 
-- **[2025.4.21]** 🤗 Our model has been released on [Huggingface](https://huggingface.co/leolee99/InjecGuard), you can quickly deploy InjecGuard now!
+- **[2025.5.15]** 🤗 Our paper has been accepted to [ACL 2025](https://arxiv.org/pdf/2410.22770)!
+- [2025.4.21] 🤗 Our model has been released on [Huggingface](https://huggingface.co/leolee99/InjecGuard), you can quickly deploy InjecGuard now!
 - [2024.10.31] 🎉🎉 Our paper has been released on [arXiv](https://arxiv.org/pdf/2410.22770).
 - [2024.10.28] 📷 Provide an online [demo](https://injecguard.github.io/) of InjecGuard.
 - [2024.10.27] 🤗 Release the [NotInject](https://huggingface.co/datasets/leolee99/NotInject) dataset.
