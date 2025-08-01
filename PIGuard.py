@@ -1,9 +1,9 @@
 import torch.nn as nn
 from transformers import AutoModel, AutoTokenizer, AutoConfig
 
-class InjecGuard(nn.Module):
+class PIGuard(nn.Module):
     def __init__(self, model_name, num_labels, device):
-        super(InjecGuard, self).__init__()
+        super(PIGuard, self).__init__()
         self.device = device
         self.config = AutoConfig.from_pretrained(model_name, output_attentions=True)
         self.deberta = AutoModel.from_pretrained(model_name, config=self.config).to(device)

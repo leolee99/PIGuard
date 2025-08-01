@@ -3,7 +3,7 @@ import torch
 import numpy as np
 from transformers import AutoTokenizer, get_scheduler
 from torch.utils.data import DataLoader
-from InjecGuard import InjecGuard
+from PIGuard import PIGuard
 from datasets import load_dataset
 from util import set_seed, get_logger, compute_accuracy
 from params import parse_args
@@ -60,7 +60,7 @@ def train():
     train_loader = DataLoader(encoded_dataset['train'], batch_size=args.batch_size, shuffle=True)
     validation_loader = DataLoader(encoded_dataset['valid'], batch_size=args.eval_batch_size, shuffle=False)
 
-    model = InjecGuard('microsoft/deberta-v3-base', num_labels=2, device=device) 
+    model = PIGuard('microsoft/deberta-v3-base', num_labels=2, device=device) 
 
     if args.resume:
         model.load_state_dict(torch.load(args.resume, map_location=device), strict=False)
