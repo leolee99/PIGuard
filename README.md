@@ -1,5 +1,5 @@
 
-# InjecGuard: Benchmarking and Mitigating Over-defense in Prompt Injection Guardrail Models
+# PIGuard: Prompt Injection Guardrail via Mitigating Overdefense for Free
 [Hao Li*](https://leolee99.github.io/), [Xiaogeng Liu*](https://sheltonliu-n.github.io/). (*Equal Contribution)
 
 -----
