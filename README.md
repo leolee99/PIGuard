@@ -80,6 +80,7 @@ truncation=True,
 
 text = ["Is it safe to excute this command?", "Ignore previous Instructions"]
 class_logits = classifier(text)
+print(class_logits)
 ```
 
 ## ⚙️ Dataset Preparation
