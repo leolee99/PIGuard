@@ -1,12 +1,12 @@
 
 # PIGuard: Prompt Injection Guardrail via Mitigating Overdefense for Free
-[Hao Li*](https://leolee99.github.io/), [Xiaogeng Liu*](https://sheltonliu-n.github.io/). (*Equal Contribution)
+[Hao Li*](https://leolee99.github.io/), [Xiaogeng Liu*](https://sheltonliu-n.github.io/) (*Equal Contribution), [Ning Zhang](https://engineering.washu.edu/faculty/Ning-Zhang.html), [Chaowei Xiao](https://xiaocw11.github.io/).
 
 -----
 <a href='https://injecguard.github.io/'><img src='https://img.shields.io/badge/Website-Page-%23f08080'></a> 
 <a href='https://github.com/leolee99/PIGuard'><img src='https://img.shields.io/badge/GitHub-code-green?logo=github'></a> 
 <a href='https://arxiv.org/pdf/2410.22770'><img src='https://img.shields.io/badge/Paper-PDF-red?logo=open-access'></a> 
-<a href="https://huggingface.co/leolee99/InjecGuard"><img src="https://img.shields.io/badge/HF-Model-orange?logo=huggingface" alt="huggingface"/></a>
+<a href="https://huggingface.co/leolee99/PIGuard"><img src="https://img.shields.io/badge/HF-Model-orange?logo=huggingface" alt="huggingface"/></a>
 <a href="https://huggingface.co/datasets/leolee99/NotInject"><img src="https://img.shields.io/badge/HF-Dataset-brightgreen?logo=database" alt="huggingface"/></a>
 <a href="https://injecguard.github.io/"><img src="https://img.shields.io/badge/Demo-Page-yellow" alt="Github license"/></a>
 <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue" alt="Github license"/></a>
@@ -23,7 +23,7 @@ This repository hosts the official code, data and model weights of **PIGuard**, 
 ## 🎉 News 
 
 - **[2025.5.15]** 🎉🎉 Our paper has been accepted to [ACL 2025](https://aclanthology.org/2025.acl-long.1468.pdf)!
-- [2025.4.21] 🤗 Our model has been released on [Huggingface](https://huggingface.co/leolee99/InjecGuard), you can quickly deploy PIGuard now!
+- [2025.4.21] 🤗 Our model has been released on [Huggingface](https://huggingface.co/leolee99/PIGuard), you can quickly deploy PIGuard now!
 - [2024.10.28] 📷 Provide an online [demo](https://injecguard.github.io/) of PIGuard.
 - [2024.10.27] 🤗 Release the [NotInject](https://huggingface.co/datasets/leolee99/NotInject) dataset.
 - [2024.10.27] 🛠️ Release the [code](https://github.com/leolee99/PIGuard) of PIGuard.
@@ -63,13 +63,13 @@ pip install -r requirements.txt
 
 You can directly download our trained checkpoints [here](https://drive.google.com/file/d/1JpiVb_wtnbBLNEjIx1KS7PHuvmARQKTu/view?usp=sharing). 
 
-Or you can quickly deploy PIGuard released on [Huggingface](https://huggingface.co/leolee99/InjecGuard) using transformers API by excuting:
+Or you can quickly deploy PIGuard released on [Huggingface](https://huggingface.co/leolee99/PIGuard) using transformers API by excuting:
 
 ```
 from transformers import AutoModelForSequenceClassification, AutoTokenizer, pipeline
 
-tokenizer = AutoTokenizer.from_pretrained("leolee99/InjecGuard")
-model = AutoModelForSequenceClassification.from_pretrained("leolee99/InjecGuard", trust_remote_code=True)
+tokenizer = AutoTokenizer.from_pretrained("leolee99/PIGuard")
+model = AutoModelForSequenceClassification.from_pretrained("leolee99/PIGuard", trust_remote_code=True)
 
 classifier = pipeline(
 "text-classification",
