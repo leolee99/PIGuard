@@ -20,6 +20,8 @@ This repository hosts the official code, data and model weights of **PIGuard**, 
 <a target="_blank"><img src="assets/figure_performance.png" alt="Perfomance Comparison" style="width: 100%; min-width: 200px; display: block; margin: auto;"></a>
 </p>
 
+***Note：*** Due to some licensing issues, the model name has been changed from **InjecGuard** to **PIGuard**. We apologize for any inconvenience this may have caused.
+
 ## 🎉 News 
 
 - **[2025.5.15]** 🎉🎉 Our paper has been accepted to [ACL 2025](https://aclanthology.org/2025.acl-long.1468.pdf)!
